@@ -198,5 +198,35 @@ if 'Survived' in df.columns:
     print("\nSurvival rate per cluster:")
     print(df.groupby('Cluster')['Survived'].mean())
 
+"""json to csv
+    df = pd.read_json(input_file)  # Read JSON file
+    df.to_csv(output_file, index=False)  # Save as CSV
+    #nested
+        with open(input_file) as f:
+        data = json.load(f)
+    
+    # Flatten nested JSON
+    df = json_normalize(data)
+    
+    # Save to CSV
+    df.to_csv(output_file, index=False)"""
+
+"""excel
+    df = pd.read_excel(input_file, sheet_name=sheet_name)
+    df.to_csv(output_file, index=False)"""
+
+"""mat
+   mat_data = scipy.io.loadmat(mat_file)
+    
+    # Find the actual data (MATLAB files often have metadata)
+    for key in mat_data:
+        if not key.startswith('__'):  # Skip MATLAB metadata
+            data = mat_data[key]
+            break
+    
+    # Convert to DataFrame and save as CSV
+    df = pd.DataFrame(data)
+    df.to_csv(csv_file, index=False)"""
+
 
 
